@@ -47,6 +47,8 @@ module.exports = {
 
   // Simpan data order
   addDataOrder(req, res) {
+    let currentResi = (Math.random() + 1).toString(36).substring(7);
+
     let data = {
       id_user: req.body.nama_user,
       admin_id: req.body.nama_admin,
@@ -55,6 +57,7 @@ module.exports = {
       berat: req.body.berat,
       total_harga: req.body.berat * 10000,
       status: "pengiriman",
+      resi: currentResi,
     };
     let sql = "INSERT INTO tabel_order SET ?";
     let query = pool.query(sql, data, (err, results) => {
