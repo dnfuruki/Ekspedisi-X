@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cek Resi</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/customer-css.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <img src="./assets/hero-img.jpg" alt="hero-img">
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <!-- Main -->
+    <div class="wrapper">
+      <div class="columns">
+        <div class="column is-12 is-flex is-justify-content-center pt-6 mt-6">
+          <div>
+            <a href="#">
+              <img src="./assets/logo.png" alt="logo" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-flex cek-resi-positioning has-text-centered">
+          <div class="wrapper">
+            <div>
+              <h4 class="cek-resi is-size-4 pb-3">Masukan nomor resi disini</h4>
+            </div>
+            <div>
+              <input type="text" class="cek-resi-input pt-3" />
+            </div>
+            <br />
+            <div class="is-flex is-justify-content-center">
+              <button
+                class="button js-modal-trigger"
+                data-target="modal-js-example"
+              >
+                Cek
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main -->
+    <!-- Modal -->
+    <div id="modal-js-example" class="modal">
+      <div class="modal-background"></div>
+
+      <div class="modal-content">
+        <div class="box">
+          <ul>
+            <li>No. Resi :</li>
+            <li>Barang :</li>
+            <li>Pengirim :</li>
+            <li>Penerima :</li>
+            <li>Status :</li>
+          </ul>
+        </div>
+      </div>
+
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <!-- Modal -->
+    <script src="/js/script.js"></script>
+  </body>
+</html>

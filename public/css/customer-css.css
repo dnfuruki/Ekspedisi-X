@@ -1,0 +1,32 @@
+.hero-img {
+    /* background-image: url("./assets/hero-img.jpg"); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.fa-circle-user {
+    color: white !important;
+}
+.username-color {
+    color: white;
+}
+.button-menu {
+    background-color:transparent;
+}
+.cek-resi {
+    color: white;
+}
+.cek-resi-positioning {
+    position:absolute;
+    top: 40%;
+    bottom: 60%;
+    left: 30%;
+    right: 70%;
+}
+.cek-resi-input {
+    height: 50px !important;
+    width: 750px;
+    border-radius: 5px;
+    border: none;
+}
