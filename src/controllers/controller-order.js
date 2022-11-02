@@ -47,7 +47,7 @@ module.exports = {
 
   // Simpan data order
   addDataOrder(req, res) {
-    let currentResi = (Math.random() + 1).toString(36).substring(7);
+    let currentResi = Date.now();
 
     let data = {
       id_user: req.body.nama_user,
