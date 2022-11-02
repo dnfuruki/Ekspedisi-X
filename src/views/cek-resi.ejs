@@ -14,7 +14,7 @@
     />
   </head>
   <body>
-    <img src="./assets/hero-img.jpg" alt="hero-img">
+    <img src="./assets/hero-img.jpg" alt="hero-img" />
     <script src="/js/jquery-3.6.0.min.js"></script>
     <!-- Main -->
     <div class="wrapper">
@@ -34,13 +34,14 @@
               <h4 class="cek-resi is-size-4 pb-3">Masukan nomor resi disini</h4>
             </div>
             <div>
-              <input type="text" class="cek-resi-input pt-3" />
+              <input id="input_resi" type="text" class="cek-resi-input pt-3" />
             </div>
             <br />
             <div class="is-flex is-justify-content-center">
               <button
                 class="button js-modal-trigger"
                 data-target="modal-js-example"
+                onclick="getResiData()"
               >
                 Cek
               </button>
@@ -57,11 +58,11 @@
       <div class="modal-content">
         <div class="box">
           <ul>
-            <li>No. Resi :</li>
-            <li>Barang :</li>
-            <li>Pengirim :</li>
-            <li>Penerima :</li>
-            <li>Status :</li>
+            <li>No. Resi : <span id="resi"></span></li>
+            <li>Barang : <span id="barang"></span></li>
+            <!-- <li>Pengirim : <span id="pengirim"></span></li> -->
+            <li>Penerima : <span id="penerima"></span></li>
+            <li>Status : <span id="status"></span></li>
           </ul>
         </div>
       </div>
@@ -70,5 +71,29 @@
     </div>
     <!-- Modal -->
     <script src="/js/script.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      var instance = axios.create({
+        baseURL: "http://localhost:8000", //use your express server's url(address) and port here
+      });
+
+      function getResiData() {
+        let resi = document.getElementById("input_resi").value;
+
+        instance.get("/cek-resi/" + resi).then((response) => {
+          //response.data will have received data
+          console.log(response);
+          console.log(response.data[0].berat);
+
+          document.getElementById("resi").innerHTML = response.data[0].resi;
+          document.getElementById("barang").innerHTML =
+            response.data[0].nama_barang;
+          document.getElementById("penerima").innerHTML =
+            response.data[0].nama_user;
+          document.getElementById("status").innerHTML = response.data[0].status;
+        });
+      }
+    </script>
   </body>
 </html>
