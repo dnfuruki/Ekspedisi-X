@@ -80,6 +80,7 @@
                     <th>Berat</th>
                     <th>Total Harga</th>
                     <th>Status</th>
+                    <th>Resi</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -94,6 +95,7 @@
                           <td><%= item.berat%></td>
                           <td><%= item.total_harga%></td>
                           <td><%= item.status%></td>
+                          <td><%= item.resi%></td>
                           <td>
                             <a href="javascript:void(0);" class="button mr-5 js-modal-trigger edit" data-id="<%= item.id_order%>" data-nama_barang="<%= item.nama_barang%>" data-berat="<%= item.berat%>" data-total_harga="<%= item.total_harga%>" data-status="<%= item.status%>">Edit</a>
                             <!-- <a href="javascript:void(0);" class="button mr-5 js-modal-trigger delete" data-id="<%= item.id_order%>"> </a> -->
