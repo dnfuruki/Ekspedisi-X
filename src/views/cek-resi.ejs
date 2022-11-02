@@ -74,18 +74,21 @@
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+      // meng inisialisasi object axios
       var instance = axios.create({
-        baseURL: "http://localhost:8000", //use your express server's url(address) and port here
+        baseURL: "http://localhost:8000",
       });
 
       function getResiData() {
+        // mengambil value dari inputan
         let resi = document.getElementById("input_resi").value;
 
+        // ngehit API
         instance.get("/cek-resi/" + resi).then((response) => {
-          //response.data will have received data
-          console.log(response);
-          console.log(response.data[0].berat);
+          // console.log(response);
+          // console.log(response.data[0].berat);
 
+          // menampilkan data ke modal
           document.getElementById("resi").innerHTML = response.data[0].resi;
           document.getElementById("barang").innerHTML =
             response.data[0].nama_barang;

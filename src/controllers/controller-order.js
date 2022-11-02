@@ -47,6 +47,7 @@ module.exports = {
 
   // Simpan data order
   addDataOrder(req, res) {
+    // generate resi dengan epouch unix time (waktu sekarang dalam format integer)
     let currentResi = Date.now();
 
     let data = {
