@@ -39,38 +39,7 @@ insert  into `tabel_ongkir`(`id_ongkir`,`asal`,`tujuan`,`harga`) values
 (6,'Jakarta','Bekasi',10000),
 (7,'Jakarta','Depok',10000);
 
-/*Table structure for table `tabel_order` */
 
-DROP TABLE IF EXISTS `tabel_order`;
-
-CREATE TABLE `tabel_order` (
-  `id_order` int(11) NOT NULL AUTO_INCREMENT,
-  `id_user` int(11) DEFAULT NULL,
-  `admin_id` int(11) DEFAULT NULL,
-  `id_ongkir` int(11) DEFAULT NULL,
-  `nama_barang` varchar(100) DEFAULT NULL,
-  `berat` int(11) DEFAULT NULL,
-  `total_harga` int(100) DEFAULT NULL,
-  `status` enum('pengiriman','menuju lokasi','diterima') DEFAULT NULL,
-  PRIMARY KEY (`id_order`),
-  KEY `id_user` (`id_user`),
-  KEY `admin_id` (`admin_id`),
-  KEY `id_ongkir` (`id_ongkir`),
-  CONSTRAINT `tabel_order_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tabel_user` (`id_user`),
-  CONSTRAINT `tabel_order_ibfk_2` FOREIGN KEY (`admin_id`) REFERENCES `table_admin` (`admin_id`),
-  CONSTRAINT `tabel_order_ibfk_3` FOREIGN KEY (`id_ongkir`) REFERENCES `tabel_ongkir` (`id_ongkir`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
-
-/*Data for the table `tabel_order` */
-
-insert  into `tabel_order`(`id_order`,`id_user`,`admin_id`,`id_ongkir`,`nama_barang`,`berat`,`total_harga`,`status`) values 
-(1,5,3,3,'Sepatu',2,20000,'pengiriman'),
-(2,5,3,3,'Baju',4,40000,'pengiriman'),
-(12,2,2,2,'Tas',2,20000,'pengiriman'),
-(13,3,2,2,'Dompet',2,20000,'diterima'),
-(14,6,2,2,'Dompet',5,50000,'pengiriman');
-
-/*Table structure for table `tabel_user` */
 
 DROP TABLE IF EXISTS `tabel_user`;
 
@@ -117,3 +86,36 @@ insert  into `table_admin`(`admin_id`,`admin_name`,`admin_email`,`admin_password
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+/*Table structure for table `tabel_order` */
+
+DROP TABLE IF EXISTS `tabel_order`;
+
+CREATE TABLE `tabel_order` (
+  `id_order` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) DEFAULT NULL,
+  `admin_id` int(11) DEFAULT NULL,
+  `id_ongkir` int(11) DEFAULT NULL,
+  `nama_barang` varchar(100) DEFAULT NULL,
+  `berat` int(11) DEFAULT NULL,
+  `total_harga` int(100) DEFAULT NULL,
+  `status` enum('pengiriman','menuju lokasi','diterima') DEFAULT NULL,
+  PRIMARY KEY (`id_order`),
+  KEY `id_user` (`id_user`),
+  KEY `admin_id` (`admin_id`),
+  KEY `id_ongkir` (`id_ongkir`),
+  CONSTRAINT `tabel_order_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tabel_user` (`id_user`),
+  CONSTRAINT `tabel_order_ibfk_2` FOREIGN KEY (`admin_id`) REFERENCES `table_admin` (`admin_id`),
+  CONSTRAINT `tabel_order_ibfk_3` FOREIGN KEY (`id_ongkir`) REFERENCES `tabel_ongkir` (`id_ongkir`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+
+/*Data for the table `tabel_order` */
+
+insert  into `tabel_order`(`id_order`,`id_user`,`admin_id`,`id_ongkir`,`nama_barang`,`berat`,`total_harga`,`status`) values 
+(1,5,3,3,'Sepatu',2,20000,'pengiriman'),
+(2,5,3,3,'Baju',4,40000,'pengiriman'),
+(12,2,2,2,'Tas',2,20000,'pengiriman'),
+(13,3,2,2,'Dompet',2,20000,'diterima'),
+(14,6,2,2,'Dompet',5,50000,'pengiriman');
+
+/*Table structure for table `tabel_user` */
