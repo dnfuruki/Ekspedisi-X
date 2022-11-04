@@ -1,5 +1,4 @@
 .hero-img {
-    /* background-image: url("./assets/hero-img.jpg"); */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -29,4 +28,10 @@
     width: 750px;
     border-radius: 5px;
     border: none;
+}
+.logo-sizing {
+    width : 200px;
+}
+.is-horizontal-center {
+    justify-content: center;
 }
